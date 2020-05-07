@@ -1,0 +1,20 @@
+
+<div style="    font-family: fat;
+font-size: 25px;
+margin-top: 10px;
+    margin-left: 15px;">
+    <ion-label>Category</ion-label>
+
+<div class="scrolling-wrapper" >
+  <div class="card" *ngFor="let cat of category">
+    <ion-card style="text-align:center;padding: 8px;" >
+      <img src="{{cat.image}}" style="    width: 55px;
+      height: 55px;
+      margin: 10px;"><br>
+      <ion-label style="    color: #303131;font-family: raleway;">{{cat.name}}</ion-label>
+  </ion-card>
+</div>
+ 
+</div>
+
+  
