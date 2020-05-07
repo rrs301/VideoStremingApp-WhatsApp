@@ -14,7 +14,7 @@ export class AppAPIService {
 
   getRandomVideo()
   {
-    return this.http.get("http://playbox99.com/VideoApp/GetVideoByCategory.php");
+    return this.http.get("https://playbox99.com/VideoApp/GetVideoByCategory.php");
   }
 
 }
