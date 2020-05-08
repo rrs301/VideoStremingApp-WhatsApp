@@ -6,14 +6,42 @@ margin-top: 10px;
     <ion-label>Category</ion-label>
 
 <div class="scrolling-wrapper" >
-  <div class="card" *ngFor="let cat of category">
-    <ion-card style="text-align:center;padding: 8px;" >
-      <img src="{{cat.image}}" style="    width: 55px;
-      height: 55px;
-      margin: 10px;"><br>
-      <ion-label style="    color: #303131;font-family: raleway;">{{cat.name}}</ion-label>
+  <div class="card" *ngFor="let cat of category" style="margin-left: -20px;">
+<div>
+  <div class="container">
+    <ion-card>
+    <img src="{{cat.image}}" alt="Snow" style="width: 150px;
+    height: 100px;">
+    <div class="centered">{{cat.name}}</div>
   </ion-card>
+  </div>
+
+  <!-- <ion-card style="height: 100px; min-width: 130px;
+     background-image: url({{cat.image}});
+  background-size: cover;text-align: center;" >
+  <div style="font-size: 30px;
+  font-family: fat;
+  color: white;background: #52545494;
+  padding-top: 29px;
+  padding-bottom: 35px;">{{cat.name}}</div>
+  
+  </ion-card> -->
+  </div>
 </div>
+</div>
+
+<!-- <div class="card"  > 
+  <ion-card style="height: 116px; width: 100%;
+     background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/back-to-school-diy-1532979234.jpg?crop=1.00xw:1.00xh;0,0&resize=480:*);
+  background-size: cover;text-align: center;" >
+  <div style="font-size: 30px;
+  font-family: ballobhai;
+  color: white;background: #52545494;
+  padding-top: 35px;
+  padding-bottom: 35px;">Art & Craft</div>
+  
+  </ion-card>
+</div> -->
  
 </div>
 

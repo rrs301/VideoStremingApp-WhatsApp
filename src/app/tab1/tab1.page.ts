@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppAPIService } from '../app-api.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tab1',
@@ -25,13 +26,14 @@ export class Tab1Page implements OnInit {
       })
   }
 
-  playVideo(url:string)
+  playVideo(url:string,title:string)
   {
       console.log(url);
       this.router.navigate(['playVideo'], {
       queryParams:
       {
-        url:url
+        url:url,
+        title:title
       }
     }
       );

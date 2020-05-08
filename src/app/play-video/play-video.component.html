@@ -2,10 +2,19 @@
 height: 40%;" controls>
     <source src="https://www.playbox99.com/app/API/videos/romantic/2277827382113271436.mp4" type="video/mp4">
   </video> -->
+  <ion-content>
 <div>
   <video style="    width: 100%;
-height: 55%;" src="{{url}}" controls playsinline uk-video>
+height: 50%;" src="{{url}}" controls playsinline uk-video>
   </video>
+
+  <div style="font-size: 19px;
+  font-family: fat;
+  margin-top: 11px;
+  margin-left: 24px;">
+  
+    <ion-label>{{title}}</ion-label>
+  </div>
 
   <ion-row style="margin:10px">
     <ion-col>
@@ -24,3 +33,50 @@ height: 55%;" src="{{url}}" controls playsinline uk-video>
     </ion-col>
   </ion-row>
 </div>
+
+<hr>
+
+
+<div style="    font-family: fat;
+font-size: 25px;
+margin-top: 10px;">
+    <ion-label style="margin-left: 17px;">Popular</ion-label>
+
+
+  <ion-list *ngFor="let item of categoryVideosList">
+    <ion-item style="margin-top:-20px" (click)="playVideo(item.url,item.title)">
+      <div >
+      <ion-row>
+        <ion-col size="5">
+          <ion-card style="margin-left: 0px;">
+          <div >
+              <div class="item">
+                <a href="#">
+                    <img src="{{item.image}}"  alt="" style="    height: 100px;
+                    width: 251px;    object-fit: none;
+    object-position: center;"/>
+              </a>
+            </div>
+          </div>
+          </ion-card>
+        
+        </ion-col>
+        <ion-col>
+          <div>
+             
+           <h5 style="font-family: fat;overflow: hidden;
+           text-overflow: ellipsis;
+           display: -webkit-box;
+           -webkit-line-clamp: 3;
+           -webkit-box-orient: vertical;">{{item.title}}</h5>   
+           <span class="notify-badge">{{item.category}}</span>
+          </div>
+        
+          </ion-col>
+      </ion-row>
+    </div>
+    </ion-item>
+  
+  </ion-list>
+  </div>
+</ion-content>
