@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppAPIService } from '../app-api.service';
-
+import { Downloader, DownloadRequest, NotificationVisibility } from '@ionic-native/downloader/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Platform } from '@ionic/angular';
 @Component({
   selector: 'app-play-video',
   templateUrl: './play-video.component.html',
@@ -9,7 +11,8 @@ import { AppAPIService } from '../app-api.service';
 })
 export class PlayVideoComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute,private api:AppAPIService,private router:Router) { }
+  constructor(private activatedRoute: ActivatedRoute,private socialSharing: SocialSharing, public platform   : Platform,
+    private api:AppAPIService,private router:Router,private downloader:Downloader) { }
 
   url:any;
   title:string;
@@ -38,5 +41,47 @@ export class PlayVideoComponent implements OnInit {
      this.url=url;
      this.title=title;
    }
+   DownloadVideo()
+   {
+    let request: DownloadRequest = {
+      uri: "https://www.playbox99.com/app/API/videos/romantic/2265855180832918192.mp4",
+      title: 'MyDownload',
+      description: '',
+      mimeType: '',
+      visibleInDownloadsUi: true,
+      notificationVisibility: NotificationVisibility.VisibleNotifyCompleted,
+      destinationInExternalFilesDir: {
+          dirType: 'Downloads',
+          subPath: ''
+      }
+  };
+
+
+this.downloader.download(request)
+          .then((location: string) => console.log('File downloaded at:'+location))
+          .catch((error: any) => console.error(error));
+   }
+
+   shareBtn(title,image,uri)
+   {
+      this.platform.ready()
+      .then(() => 
+      {		  		
+
+         this.socialSharing.share(this.title, "No Subj", "https://image.flaticon.com/icons/svg/1051/1051262.svg", this.url)
+         .then((data) =>
+         {
+            console.log('Shared via SharePicker');
+         })
+         .catch((err) =>
+         {
+            console.log('Was not shared via SharePicker');
+         });
+
+      });
+   }
+
  
 }
+
+

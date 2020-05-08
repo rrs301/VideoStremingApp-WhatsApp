@@ -19,14 +19,14 @@ height: 50%;" src="{{url}}" controls playsinline uk-video>
   <ion-row style="margin:10px">
     <ion-col>
       <ion-button expand="full" shape="round" style="height: 40px;
-      font-family: raleway;"> 
+      font-family: raleway;" (click)="DownloadVideo()"> 
         <ion-icon name="cloud-download" style="margin-right: 10px;"></ion-icon>
         Download
       </ion-button>
     </ion-col>
     <ion-col>
       <ion-button  color="success" expand="full" shape="round" style="height: 40px;
-      font-family: raleway;"> 
+      font-family: raleway;" (click)="shareBtn()"> 
         <ion-icon name="share"  style="margin-right: 10px;"></ion-icon>
         Share
       </ion-button>
