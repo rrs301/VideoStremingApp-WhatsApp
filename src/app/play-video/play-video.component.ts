@@ -62,7 +62,7 @@ this.downloader.download(request)
           .catch((error: any) => console.error(error));
    }
 
-   shareBtn(title,image,uri)
+   shareBtn()
    {
       this.platform.ready()
       .then(() => 

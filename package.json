@@ -25,9 +25,17 @@
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
-    "cordova-plugin-x-socialsharing": "^5.6.5",
+    "cordova-android": "7.1.4",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-ionic-webview": "^4.2.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-x-socialsharing": "5.6.5",
     "core-js": "^2.5.4",
-    "integrator-cordova-plugin-downloader": "^1.1.0",
+    "es6-promise-plugin": "^4.2.2",
+    "integrator-cordova-plugin-downloader": "1.1.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -59,7 +67,18 @@
   "cordova": {
     "plugins": {
       "integrator-cordova-plugin-downloader": {},
-      "cordova-plugin-x-socialsharing": {}
-    }
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
