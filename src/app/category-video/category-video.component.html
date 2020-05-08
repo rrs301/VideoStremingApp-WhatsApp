@@ -1,29 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="warning">
     <ion-title>
-      Home
+      {{category}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<!-- <div class="card"  > 
-  <ion-card style="height: 116px; width: 100%;
-     background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/back-to-school-diy-1532979234.jpg?crop=1.00xw:1.00xh;0,0&resize=480:*);
-  background-size: cover;text-align: center;" >
-  <div style="font-size: 30px;
-  font-family: ballobhai;
-  color: white;background: #52545494;
-  padding-top: 35px;
-  padding-bottom: 35px;">Art & Craft</div>
-  
-  </ion-card>
-</div> -->
-
-<ion-content [fullscreen]="true">
-  <app-category></app-category>
+<ion-content>
 <div style="    font-family: fat;
 font-size: 25px;
 margin-top: 10px;">
-    <ion-label style="margin-left: 17px;">Popular</ion-label>
+    <ion-label style="margin-left: 17px;">Popular in  {{category}}</ion-label>
+  
 
 
   <ion-list *ngFor="let item of randomVideosList">
@@ -90,20 +77,20 @@ height: 50%;" src="{{item.ur}}" controls  uk-video>
   font-family: raleway;padding-left: 10px;">
     <ion-label style="
     color: white;">{{item.title}}</ion-label></p>
-      <p style="padding-left: 10px;">  
-      <!-- <ion-label ><span style="background: aqua;
+      <p style="padding-left: 10px;"> 
+       <!-- <span><ion-label ><span style="background: aqua;
           padding: 4px;
           padding-left: 12px;
           padding-right: 10px;
           /* border-radius: 34px; */
           background-image: linear-gradient(to right, #EB3349 0%, #F45C43 51%, #EB3349 100%);
-          color: white;">{{item.category}}</span></ion-label> -->
-          <ion-button style="margin-right: 10px;
-          font-size: 10px;
-          height: 25px;
-          margin-bottom: 13px;
-          " color="danger">   <ion-icon name="heart-circle" style="margin-right: 10px;"></ion-icon>{{item.category}}</ion-button>
-        
+          color: white;">{{item.category}}</span></ion-label></span> -->
+           <ion-button style="margin-right: 10px;
+           font-size: 10px;
+           height: 25px;
+           margin-bottom: 13px;
+           " color="danger">   <ion-icon name="heart-circle" style="margin-right: 10px;"></ion-icon>{{item.category}}</ion-button>
+         
           <ion-button style="margin-right: 10px;
           font-size: 10px;
           height: 25px;

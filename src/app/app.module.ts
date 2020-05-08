@@ -12,8 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlayVideoComponent } from './play-video/play-video.component';
 import { Downloader } from '@ionic-native/downloader/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { CategoryVideoComponent } from './category-video/category-video.component';
 @NgModule({
-  declarations: [AppComponent,PlayVideoComponent],
+  declarations: [AppComponent,PlayVideoComponent,CategoryVideoComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
   providers: [

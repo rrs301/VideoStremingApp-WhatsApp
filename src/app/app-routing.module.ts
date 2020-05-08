@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PlayVideoComponent } from './play-video/play-video.component';
+import { CategoryVideoComponent } from './category-video/category-video.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path:'playVideo',
     component:PlayVideoComponent
+  },
+  {
+    path:'CategoryVideo',
+    component:CategoryVideoComponent
   }
 ];
 @NgModule({

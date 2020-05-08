@@ -38,4 +38,16 @@ export class Tab2Page implements OnInit{
       //this.cat_row.push(this.MainCategoryData/3)
     });
   }
+
+  CategoryClick(category:string)
+  {
+      //this.api.getRandomVideo()
+      this.route.navigate(['CategoryVideo'], {
+        queryParams:
+        {
+          category:category.toLowerCase()
+        }
+      })
+  }
+
 }

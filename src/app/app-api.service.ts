@@ -7,19 +7,24 @@ import { LoadingController } from '@ionic/angular';
 })
 export class AppAPIService {
    loading;
+   
   constructor(private http: HttpClient,public loadingController: LoadingController) { }
 
   getCategory()
   {
-    return this.http.get("https://playbox99.com/VideoApp/GetVideoCategory.php");
+    return this.http.get("https://playbox99.com/VideoApp/GetVideoCategory.php?");
   }
 
-  getRandomVideo(dataCount:number)
+  getRandomVideo(dataCount:number,)
   {
     console.log('https://playbox99.com/VideoApp/GetVideoByCategory.php?dataCount='+dataCount);
     return this.http.get("https://playbox99.com/VideoApp/GetVideoByCategory.php?dataCount="+dataCount);
   }
-
+  getCategoryVideo(dataCount:number,cat:string='')
+  {
+    console.log('https://playbox99.com/VideoApp/GetVideoByCategory.php?dataCount='+dataCount+"&cat="+cat);
+    return this.http.get("https://playbox99.com/VideoApp/GetVideoByCategory.php?dataCount="+dataCount+"&cat="+cat);
+  }
   showMsgDialog(msg:string)
   {
     Swal.fire(
