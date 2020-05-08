@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppAPIService } from '../app-api.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -9,9 +10,11 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
- 
-
+  @ViewChild(IonInfiniteScroll,{static: true}) infiniteScroll: IonInfiniteScroll;
+  list:any=[];
   randomVideosList:any=[];
+
+  dataCount=0;
   constructor(private api:AppAPIService,private router:Router) {}
 
   ngOnInit(): void {
@@ -20,9 +23,13 @@ export class Tab1Page implements OnInit {
 
   getRandomVideo()
   {
-      this.api.getRandomVideo().subscribe(data=>{
-        this.randomVideosList=data;
-        console.log(data);
+      this.api.getRandomVideo(this.dataCount).subscribe(data=>{
+       // this.randomVideosList=data;
+        this.list=data;
+        for(let i=0;i<this.list.length;i++)
+        {
+            this.randomVideosList.push(this.list[i]);
+        }
       })
   }
 
@@ -37,6 +44,24 @@ export class Tab1Page implements OnInit {
       }
     }
       );
+  }
+  loadData(event) {
+    setTimeout(() => {
+      this.dataCount+=25;
+      this.getRandomVideo();
+      console.log('Done');
+      event.target.complete();
+
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.randomVideosList.length == 1000) {
+        event.target.disabled = true;
+      }
+    }, 1500);
+  }
+
+  toggleInfiniteScroll() {
+    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
 
 }

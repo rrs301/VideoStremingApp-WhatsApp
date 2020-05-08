@@ -17,6 +17,7 @@ export class PlayVideoComponent implements OnInit {
   url:any;
   title:string;
   categoryVideosList:any=[];
+  dataCount=25;
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       this.url = params['url'];
@@ -30,7 +31,7 @@ export class PlayVideoComponent implements OnInit {
  
   getCategoryVideo()
    {
-       this.api.getRandomVideo().subscribe(data=>{
+       this.api.getRandomVideo(this.dataCount).subscribe(data=>{
          this.categoryVideosList=data;
          console.log(data);
        })
@@ -43,6 +44,7 @@ export class PlayVideoComponent implements OnInit {
    }
    DownloadVideo()
    {
+    
     let request: DownloadRequest = {
       uri: "https://www.playbox99.com/app/API/videos/romantic/2265855180832918192.mp4",
       title: 'MyDownload',
@@ -54,12 +56,15 @@ export class PlayVideoComponent implements OnInit {
           dirType: 'Downloads',
           subPath: ''
       }
+      
   };
 
 
 this.downloader.download(request)
           .then((location: string) => console.log('File downloaded at:'+location))
           .catch((error: any) => console.error(error));
+
+          this.api.showMsgDialog();
    }
 
    shareBtn(title,image,uri)
@@ -68,7 +73,7 @@ this.downloader.download(request)
       .then(() => 
       {		  		
 
-         this.socialSharing.share(this.title, "No Subj", "https://image.flaticon.com/icons/svg/1051/1051262.svg", this.url)
+         this.socialSharing.share(this.title, "\nDownload the VideoBox App from Playstore\n", "", this.url)
          .then((data) =>
          {
             console.log('Shared via SharePicker');

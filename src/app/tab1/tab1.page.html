@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="warning">
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -66,6 +66,12 @@ margin-top: 10px;">
     </ion-item>
   
   </ion-list>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
   </div>
 </ion-content>
 

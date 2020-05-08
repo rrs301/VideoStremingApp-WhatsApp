@@ -1,17 +1,28 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-title>
-      Tab 2
+      Category
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div>
+    
+    <ion-grid>
+      <ion-row class="category_row" *ngFor="let row of cat_row">
+        <ion-col style="margin: -15px;"  *ngFor="let cat of loop;let i = index">
+          <div class="container">
+         <ion-card style="margin: 20px;">
+        <img src="{{MainCategoryData[row+i].image}}" style="     height: 105px;
+        width: 100%;   ">
+          <div class="centered">{{MainCategoryData[row+i].name}}</div>
+         </ion-card>
+        </div>
+        </ion-col >
+        
+      </ion-row>
+      
+      </ion-grid>
+  </div>
 </ion-content>
