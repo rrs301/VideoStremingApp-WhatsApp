@@ -37,6 +37,7 @@
     "es6-promise-plugin": "^4.2.2",
     "integrator-cordova-plugin-downloader": "1.1.0",
     "rxjs": "~6.5.1",
+    "sweetalert2": "^9.10.12",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
