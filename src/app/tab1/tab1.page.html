@@ -26,7 +26,7 @@ margin-top: 10px;">
 
 
   <ion-list *ngFor="let item of randomVideosList">
-    <ion-item style="margin-top:-20px" (click)="playVideo(item.url,item.title)">
+    <ion-item style="margin-top:-20px" (click)="playVideo(item.url,item.title)" *ngIf="viewMode==1;else anotherView">
       <div >
       <ion-row>
         <ion-col size="5">
@@ -35,7 +35,7 @@ margin-top: 10px;">
               <div class="item" (click)="playVideo(item.url,item.title)">
                
                     <img src="{{item.image}}"  alt="" style="    height: 100px;
-                    width: 251px;    object-fit: none;
+                    width: 251px;    object-fit: cover;
     object-position: center;"/>
              
             </div>
@@ -64,6 +64,52 @@ margin-top: 10px;">
       </ion-row>
     </div>
     </ion-item>
+
+
+    <ng-template #anotherView>
+    <ion-card style="background: #383838;margin-left: 15px;
+    margin-right: 15px;" (click)="inPagePlayVideo(item.url)">
+      <!-- <img src="{{item.image}}" style="    height: 185px;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;">
+      <video *ngIf="isplayVideo==1" style="    width: 100%;
+height: 50%;" src="{{item.ur}}" controls  uk-video>
+  </video> -->
+
+
+  <video controls poster="{{item.image}}" style="width: 100%;
+  height: 50%;">
+    <source src="{{item.url}}" type="video/mp4">
+   
+    Your browser does not support the video .
+  </video>
+
+  <p style="margin-top:10px;font-size: 14px;
+  font-family: raleway;padding-left: 10px;">
+    <ion-label style="
+    color: white;">{{item.title}}</ion-label></p>
+      <p style="padding-left: 10px;">  <ion-label ><span style="background: aqua;
+          padding: 4px;
+          padding-left: 12px;
+          padding-right: 10px;
+          /* border-radius: 34px; */
+          background-image: linear-gradient(to right, #EB3349 0%, #F45C43 51%, #EB3349 100%);
+          color: white;">{{item.category}}</span></ion-label>
+
+          <ion-button style="margin-right: 10px;
+          font-size: 10px;
+          height: 25px;
+          margin-bottom: 13px;
+          float: right;" (click)="DownloadVideo(item.url,item.title)">   <ion-icon name="download" style="margin-right: 10px;"></ion-icon>Download</ion-button>
+          <ion-button style="margin-right: 10px;
+          font-size: 10px;
+          height: 25px;
+          margin-bottom: 13px;
+          float: right;" color="success" (click)="shareBtn(item.url,item.title)"><ion-icon name="share" style="margin-right: 10px;"></ion-icon>Share</ion-button>
+          </p>
+    </ion-card>
+  </ng-template>
   
   </ion-list>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
@@ -75,5 +121,8 @@ margin-top: 10px;">
   </div>
 </ion-content>
 
-
-
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab-button color="warning" (click)="changeViewMode()">
+    <ion-icon name="eye" ></ion-icon>
+  </ion-fab-button>
+</ion-fab>

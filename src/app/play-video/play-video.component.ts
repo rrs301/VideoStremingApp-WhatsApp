@@ -4,6 +4,7 @@ import { AppAPIService } from '../app-api.service';
 import { Downloader, DownloadRequest, NotificationVisibility } from '@ionic-native/downloader/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Platform } from '@ionic/angular';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-play-video',
   templateUrl: './play-video.component.html',
@@ -61,22 +62,29 @@ export class PlayVideoComponent implements OnInit {
 
 
 this.downloader.download(request)
-          .then((location: string) => console.log('File downloaded at:'+location))
+          .then((location: string) => {
+            console.log('File downloaded at:'+location)
+            this.api.showMsgDialog(location);
+        
+        })
           .catch((error: any) => console.error(error));
 
-          this.api.showMsgDialog();
+          this.api.showMsgDialog("Download Started");
    }
 
+  
    shareBtn()
    {
+     this.api.showLoader();
       this.platform.ready()
       .then(() => 
       {		  		
 
-         this.socialSharing.share(this.title, "\nDownload the VideoBox App from Playstore\n", "", this.url)
+         this.socialSharing.share(this.title, "\nDownload the VideoBox App from Playstore\n", this.url, this.url)
          .then((data) =>
          {
             console.log('Shared via SharePicker');
+            this.api.dismissLoader();
          })
          .catch((err) =>
          {
