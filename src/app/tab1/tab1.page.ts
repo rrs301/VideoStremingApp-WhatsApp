@@ -26,6 +26,7 @@ export class Tab1Page implements OnInit {
 
   getRandomVideo()
   {
+    this.api.showLoader();
       this.api.getRandomVideo(this.dataCount).subscribe(data=>{
        // this.randomVideosList=data;
         this.list=data;
@@ -33,6 +34,7 @@ export class Tab1Page implements OnInit {
         {
             this.randomVideosList.push(this.list[i]);
         }
+        this.api.dismissLoader();
       })
   }
 

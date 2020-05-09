@@ -20,10 +20,11 @@ export class Tab2Page implements OnInit{
 
   getCategory()
   {
+    this.api.presentLoading();
     this.api.getCategory().subscribe(data=>{
       
       this.MainCategoryData=data;
-      console.log(this.MainCategoryData);
+     // console.log(this.MainCategoryData);
       let tempData=this.MainCategoryData.length/2;
      
       let flag=0;
@@ -33,8 +34,8 @@ export class Tab2Page implements OnInit{
           this.cat_row.push(flag);
           flag+=2;
       }
-      console.log(this.cat_row);
-     
+     // console.log(this.cat_row);
+     this.api.dismissLoading();
       //this.cat_row.push(this.MainCategoryData/3)
     });
   }

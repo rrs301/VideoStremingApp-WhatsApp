@@ -44,7 +44,7 @@ margin-top: 10px;">
           </ion-card>
        
         </ion-col>
-        <ion-col>
+        <ion-col size="7">
           <div>
              
            <h5 style="font-family: fat;overflow: hidden;
@@ -52,13 +52,19 @@ margin-top: 10px;">
            display: -webkit-box;
            -webkit-line-clamp: 3;
            -webkit-box-orient: vertical;">{{item.title}}</h5>   
-           <ion-label ><span style="background: aqua;
+           <!-- <ion-label ><span style="background: aqua;
             padding: 24px;
             padding-left: 12px;
             padding-right: 10px;
             /* border-radius: 34px; */
             background-image: linear-gradient(to right, #EB3349 0%, #F45C43 51%, #EB3349 100%);
-            color: white;">{{item.category}}</span></ion-label>
+            color: white;">{{item.category}}</span></ion-label> -->
+            <ion-button style="margin-right: 10px;
+            font-size: 10px;
+            height: 25px;
+            margin-bottom: 13px;
+            " color="danger">   <ion-icon name="heart-circle" style="margin-right: 10px;"></ion-icon>{{item.category}}</ion-button>
+          
           </div>
         
           </ion-col>
@@ -79,9 +85,9 @@ height: 50%;" src="{{item.ur}}" controls  uk-video>
   </video> -->
 
 
-  <video controls poster="{{item.image}}" style="width: 100%;
+  <video controls  style="width: 100%;
   height: 50%;">
-    <source src="{{item.url}}" type="video/mp4">
+    <source src="{{item.url}}" type="video/mp4"#t2 type="video/mp4">
    
     Your browser does not support the video .
   </video>

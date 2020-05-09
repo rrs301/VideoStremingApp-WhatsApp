@@ -38,7 +38,7 @@ export class AppAPIService {
   {
     Swal.fire(
       'Please Wait',
-      'Preparing to Share'
+      'We are getting New things'
     )
     Swal.showLoading();
   
@@ -52,15 +52,16 @@ export class AppAPIService {
     this.loading = await this.loadingController.create({
       message: 'Please wait...',
       backdropDismiss:true,
-      spinner:"dots"
+      spinner:"dots",
+      duration: 2000
     });
     await this.loading.present();
 
     
   }
-  dismissLoading()
+  async dismissLoading()
   {
-    this.loading.onDidDismiss();
+    this.loading.dismiss();
     console.log('Loading dismissed!');
   }
   

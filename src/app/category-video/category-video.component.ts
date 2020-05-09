@@ -32,6 +32,7 @@ export class CategoryVideoComponent implements OnInit {
 
   getCategoryVideo()
   {
+    this.api.presentLoading();
       this.api.getCategoryVideo(this.dataCount,this.category).subscribe(data=>{
        // this.randomVideosList=data;
         this.list=data;
@@ -40,6 +41,7 @@ export class CategoryVideoComponent implements OnInit {
         {
             this.randomVideosList.push(this.list[i]);
         }
+        this.api.dismissLoading();
       })
   }
 

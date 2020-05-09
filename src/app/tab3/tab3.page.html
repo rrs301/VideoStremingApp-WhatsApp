@@ -15,4 +15,53 @@
     <p style="    margin-top: 8%;"><ion-button>Login to Earn Money</ion-button></p>
   </ion-card>
 
+  <ion-card style="
+  height: 100px;
+  margin: 20px;
+  border-radius: 12px;
+  padding: 15px;
+    background-image: linear-gradient(to right, #26D0CE 0%, #1A2980 100%);">
+  <div>
+    <p style="    font-size: 20px;
+    color: #020202;
+    font-family: raleway;">Days left 
+    <!-- <span style="font-size:20px;    margin-left: 30%;
+    color: white;" *ngIf="redeem==0;else redeemBtn">
+     >15 days</span> -->
+    <ion-button color="danger" style="float: right;" *ngIf="redeem==0;else redeemBtn"> 
+      <img src="https://image.flaticon.com/icons/svg/470/470326.svg" 
+    style="width: 19px;margin-right: 10px;
+      ">15 Days</ion-button>
+  <ng-template #redeemBtn>
+      <ion-button color="success" style="float: right;">Redeem Now</ion-button>
+  </ng-template>  
+  </p>
+    <p style="    margin-top: 2%;
+    color: black;
+    font-family: raleway;
+    font-size: 16px;">Total days left to Redeem</p>
+
+
+  </div>
+   </ion-card>
+  <ion-list>
+    <ion-item>
+      <img src="https://image.flaticon.com/icons/svg/2232/2232688.svg" style="width: 12%;
+      margin: 14px;">
+      <span style="font-size: 20px;
+      font-family: raleway;">How to Earn</span>
+    </ion-item>
+    <ion-item>
+      <img src="https://image.flaticon.com/icons/svg/726/726623.svg" style="width: 12%;
+      margin: 14px;">
+      <span style="font-size: 20px;
+      font-family: raleway;">Contact Us</span>
+    </ion-item>
+    <ion-item>
+      <img src="https://image.flaticon.com/icons/svg/2742/2742472.svg" style="width: 12%;
+      margin: 14px;">
+      <span style="font-size: 20px;
+      font-family: raleway;">About us and Privacy Policy</span>
+    </ion-item>
+  </ion-list>
 </ion-content>

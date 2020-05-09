@@ -13,7 +13,11 @@ height: 50%;" src="{{url}}" controls playsinline uk-video>
   margin-top: 11px;
   margin-left: 24px;">
   
-    <ion-label>{{title}}</ion-label>
+    <ion-label style="overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;">{{title}}</ion-label>
   </div>
 
   <ion-row style="margin:10px">
@@ -63,7 +67,7 @@ margin-top: 10px;">
           </ion-card>
         
         </ion-col>
-        <ion-col>
+        <ion-col size="7">
           <div>
              
            <h5 style="font-family: fat;overflow: hidden;
