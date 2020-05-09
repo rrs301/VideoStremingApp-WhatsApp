@@ -5,6 +5,9 @@ import { Downloader, DownloadRequest, NotificationVisibility } from '@ionic-nati
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Platform } from '@ionic/angular';
 import Swal from 'sweetalert2';
+import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
+
+
 @Component({
   selector: 'app-play-video',
   templateUrl: './play-video.component.html',
@@ -13,7 +16,9 @@ import Swal from 'sweetalert2';
 export class PlayVideoComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,private socialSharing: SocialSharing, public platform   : Platform,
-    private api:AppAPIService,private router:Router,private downloader:Downloader) { }
+    private api:AppAPIService,private router:Router,
+    private admobFree: AdMobFree,
+    private downloader:Downloader) { }
 
   url:any;
   title:string;
@@ -27,6 +32,8 @@ export class PlayVideoComponent implements OnInit {
     });
 
     this.getCategoryVideo();
+    this.ShowFullAdmobAd();
+    this.showBanner();
   }
 
  
@@ -75,7 +82,7 @@ this.downloader.download(request)
   
    shareBtn()
    {
-     this.api.showLoader();
+    this.api.presentLoading();
       this.platform.ready()
       .then(() => 
       {		  		
@@ -84,7 +91,7 @@ this.downloader.download(request)
          .then((data) =>
          {
             console.log('Shared via SharePicker');
-            this.api.dismissLoader();
+            this.api.dismissLoading();
          })
          .catch((err) =>
          {
@@ -95,6 +102,58 @@ this.downloader.download(request)
    }
 
  
+   ShowFullAdmobAd()
+   {
+    if(this.platform.is('cordova'))
+    {
+
+    const FullAdConfig: AdMobFreeInterstitialConfig = {
+      // add your config here
+      // for the sake of this example we will just use the test config
+      
+      id:'ca-app-pub-6794621608321846/8591583220',
+      isTesting: true,
+      autoShow: true
+     };
+     this.admobFree.interstitial.config(FullAdConfig);
+     
+     this.admobFree.interstitial.prepare()
+       .then(() => {
+         
+         // if we set autoShow to false, then we will need to call the show method here
+         this.admobFree.interstitial.show();
+         console.log("Display")
+       })
+    }
+      
+      
+    }
+
+    showBanner()
+    {
+      if(this.platform.is('cordova'))
+      {
+ 
+      const bannerConfig: AdMobFreeBannerConfig = {
+        // add your config here
+        // for the sake of this example we will just use the test config
+
+        isTesting: true,
+        autoShow: true,
+        id:"ca-app-pub-6794621608321846/8839635866"
+       };
+       this.admobFree.banner.config(bannerConfig);
+       
+       this.admobFree.banner.prepare()
+         .then(() => {
+           // banner Ad is ready
+           // if we set autoShow to false, then we will need to call the show method here
+         })
+         .catch(e => console.log(e));
+    }
+  
+    }
+  
 }
 
 

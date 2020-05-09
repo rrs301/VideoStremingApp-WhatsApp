@@ -4,6 +4,7 @@ import { AppAPIService } from '../app-api.service';
 import { Downloader, DownloadRequest, NotificationVisibility } from '@ionic-native/downloader/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Platform, IonInfiniteScroll } from '@ionic/angular';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -18,15 +19,18 @@ export class Tab1Page implements OnInit {
   dataCount=0;
   viewMode=1;
   constructor(private activatedRoute: ActivatedRoute,private socialSharing: SocialSharing, public platform   : Platform,
-    private api:AppAPIService,private router:Router,private downloader:Downloader) {}
+    private api:AppAPIService,private router:Router,
+    private oneSignal: OneSignal,
+    private downloader:Downloader) {}
 
   ngOnInit(): void {
    this.getRandomVideo();
+ 
   }
 
   getRandomVideo()
   {
-    this.api.showLoader();
+    this.api.presentLoading();
       this.api.getRandomVideo(this.dataCount).subscribe(data=>{
        // this.randomVideosList=data;
         this.list=data;
@@ -34,7 +38,7 @@ export class Tab1Page implements OnInit {
         {
             this.randomVideosList.push(this.list[i]);
         }
-        this.api.dismissLoader();
+        this.api.dismissLoading();
       })
   }
 

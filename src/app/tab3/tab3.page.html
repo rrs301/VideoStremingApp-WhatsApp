@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-title>
       Tab 3
     </ion-title>
@@ -8,13 +8,13 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-card style="text-align: center;
+  <ion-card *ngIf="isLogin==0;else afterLogin" style="text-align: center;
   height: 100px;
   margin: 20px;
-  background: #4e4e4d;">
-    <p style="    margin-top: 8%;"><ion-button>Login to Earn Money</ion-button></p>
+  background-image: linear-gradient(to right, #26D0CE 0%, #1A2980 100%);">
+    <p style="    margin-top: 8%;"><ion-button color="warning" >Login to Earn Money</ion-button></p>
   </ion-card>
-
+<ng-template #afterLogin>
   <ion-card style="
   height: 100px;
   margin: 20px;
@@ -44,6 +44,8 @@
 
   </div>
    </ion-card>
+
+  </ng-template>
   <ion-list>
     <ion-item>
       <img src="https://image.flaticon.com/icons/svg/2232/2232688.svg" style="width: 12%;

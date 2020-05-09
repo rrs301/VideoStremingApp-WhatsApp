@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
+<widget id="io.innocruts.videobox" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>VideoBox</name>
+    <description>Watch and Download Free Videos for Whatsapp and Instagram</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -101,5 +101,9 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="integrator-cordova-plugin-downloader" spec="1.1.0" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.6.5" />
+    <plugin name="onesignal-cordova-plugin" spec="2.9.1" />
+    <plugin name="cordova-plugin-admob-free" spec="0.27.0">
+        <variable name="ADMOB_APP_ID" value="ca-app-pub-6794621608321846~7470073248" />
+    </plugin>
     <engine name="android" spec="7.1.4" />
 </widget>
