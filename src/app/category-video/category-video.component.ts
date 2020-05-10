@@ -114,7 +114,7 @@ export class CategoryVideoComponent implements OnInit {
        
        })
          .catch((error: any) => console.error(error));
-
+        this.api.SaveUserDownloadStatics();
          this.api.showMsgDialog("Download Started");
   }
 
@@ -132,6 +132,7 @@ export class CategoryVideoComponent implements OnInit {
            console.log('Shared via SharePicker');
     //       this.api.dismissLoader();
            this.api.dismissLoading();
+           this.api.SaveUserShareStatics();
         })
         .catch((err) =>
         {

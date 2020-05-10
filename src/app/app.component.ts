@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { FCM } from '@ionic-native/fcm/ngx';
+import { AppAPIService } from './app-api.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -16,11 +17,13 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private oneSignal: OneSignal,
-    private fcm: FCM
+    private fcm: FCM,
+    private api:AppAPIService
   ) {
     this.initializeApp();
-
-  }
+    this.api.ResetUserStatic();
+    this.api.UploadStatics();
+  } 
    
   initializeApp() {
     this.platform.ready().then(() => {

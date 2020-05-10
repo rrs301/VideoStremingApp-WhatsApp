@@ -18,6 +18,7 @@ export class PlayVideoComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,private socialSharing: SocialSharing, public platform   : Platform,
     private api:AppAPIService,private router:Router,
     private admobFree: AdMobFree,
+    
     private downloader:Downloader) { }
 
   url:any;
@@ -34,8 +35,10 @@ export class PlayVideoComponent implements OnInit {
     this.getCategoryVideo();
     this.ShowFullAdmobAd();
     this.showBanner();
+    this.api.SaveUserVideoStatics();
   }
 
+ 
  
   getCategoryVideo()
    {
@@ -64,6 +67,8 @@ export class PlayVideoComponent implements OnInit {
           dirType: 'Downloads',
           subPath: ''
       }
+
+      
       
   };
 
@@ -77,6 +82,7 @@ this.downloader.download(request)
           .catch((error: any) => console.error(error));
 
           this.api.showMsgDialog("Download Started");
+          this.api.SaveUserDownloadStatics();
    }
 
   
@@ -92,6 +98,7 @@ this.downloader.download(request)
          {
             console.log('Shared via SharePicker');
             this.api.dismissLoading();
+            this.api.SaveUserShareStatics();
          })
          .catch((err) =>
          {

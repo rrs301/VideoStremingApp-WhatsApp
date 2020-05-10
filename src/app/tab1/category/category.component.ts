@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppAPIService } from 'src/app/app-api.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -9,7 +11,7 @@ import { AppAPIService } from 'src/app/app-api.service';
 export class CategoryComponent implements OnInit {
 
   category:any=[];
-  constructor(public api:AppAPIService) { }
+  constructor(public api:AppAPIService,private route:Router) { }
 
   ngOnInit() {
     this.getCategory();
@@ -20,6 +22,16 @@ export class CategoryComponent implements OnInit {
       this.api.getCategory().subscribe(data=>{
         console.log(data);
         this.category=data;
+      })
+  }
+  CategoryClick(category:string)
+  {
+      //this.api.getRandomVideo()
+      this.route.navigate(['CategoryVideo'], {
+        queryParams:
+        {
+          category:category.toLowerCase()
+        }
       })
   }
 

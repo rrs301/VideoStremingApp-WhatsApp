@@ -12,7 +12,7 @@
   height: 100px;
   margin: 20px;
   background-image: linear-gradient(to right, #26D0CE 0%, #1A2980 100%);">
-    <p style="    margin-top: 8%;"><ion-button color="warning" >Login to Earn Money</ion-button></p>
+    <p style="    margin-top: 8%;"><ion-button color="warning" (click)="LoginBtnClick()">Login to Earn Money</ion-button></p>
   </ion-card>
 <ng-template #afterLogin>
   <ion-card style="
@@ -51,19 +51,19 @@
       <img src="https://image.flaticon.com/icons/svg/2232/2232688.svg" style="width: 12%;
       margin: 14px;">
       <span style="font-size: 20px;
-      font-family: raleway;">How to Earn</span>
+      font-family: raleway;" (click)="HowToPlay()">How to Earn</span>
     </ion-item>
     <ion-item>
       <img src="https://image.flaticon.com/icons/svg/726/726623.svg" style="width: 12%;
       margin: 14px;">
       <span style="font-size: 20px;
-      font-family: raleway;">Contact Us</span>
+      font-family: raleway;" (click)="ContactUs()">Contact Us</span>
     </ion-item>
     <ion-item>
       <img src="https://image.flaticon.com/icons/svg/2742/2742472.svg" style="width: 12%;
       margin: 14px;">
       <span style="font-size: 20px;
-      font-family: raleway;">About us and Privacy Policy</span>
+      font-family: raleway;" (click)="AboutUs()">About us and Privacy Policy</span>
     </ion-item>
   </ion-list>
 </ion-content>

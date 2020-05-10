@@ -9,7 +9,7 @@ margin-top: 10px;
   <div class="card" *ngFor="let cat of category" style="margin-left: -20px;">
 <div>
   <div class="container">
-    <ion-card>
+    <ion-card (click)="CategoryClick(cat.name)">
     <img src="{{cat.image}}" alt="Snow" style="width: 150px;
     height: 100px;">
     <div class="centered">{{cat.name}}</div>
