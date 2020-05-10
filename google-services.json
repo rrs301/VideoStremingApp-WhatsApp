@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "606323862619",
+    "firebase_url": "https://androidapps-91fd1.firebaseio.com",
+    "project_id": "androidapps-91fd1",
+    "storage_bucket": "androidapps-91fd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606323862619:android:f016e72dcb7547626ca37e",
+        "android_client_info": {
+          "package_name": "io.innocruts.videobox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606323862619-rrrigrebu83qfhd8kqu62n2744r7p4pq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjhLhtS_4pzc8y8ghRvOAzPFRVhi36SYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606323862619-rrrigrebu83qfhd8kqu62n2744r7p4pq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

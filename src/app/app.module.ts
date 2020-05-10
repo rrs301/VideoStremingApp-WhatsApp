@@ -16,13 +16,13 @@ import { CategoryVideoComponent } from './category-video/category-video.componen
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free/ngx';
 
-
+import { FCM } from '@ionic-native/fcm/ngx';
 @NgModule({
   declarations: [AppComponent,PlayVideoComponent,CategoryVideoComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
   providers: [
-    StatusBar,AdMobFree,
+    StatusBar,AdMobFree,FCM,
     SplashScreen,Downloader,SocialSharing,OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

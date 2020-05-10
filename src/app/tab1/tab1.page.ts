@@ -25,7 +25,7 @@ export class Tab1Page implements OnInit {
 
   ngOnInit(): void {
    this.getRandomVideo();
- 
+   this.OneSignalNotification();
   }
 
   getRandomVideo()
@@ -138,6 +138,24 @@ export class Tab1Page implements OnInit {
      });
   }
   
+  OneSignalNotification()
+  {
+    console.log("In notification");
+    this.oneSignal.startInit('091567a1-fa1d-44b2-bcbd-3d2c9787c445', 'androidapps-91fd1');
+
+
+    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+
+    this.oneSignal.handleNotificationReceived().subscribe(() => {
+      // do something when notification is received
+    });
+
+    this.oneSignal.handleNotificationOpened().subscribe(() => {
+      // do something when a notification is opened
+    });
+
+    this.oneSignal.endInit();
+  }
 
 
 }
